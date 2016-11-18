@@ -4,10 +4,25 @@ output:
   html_document:
     keep_md: true
 ---
+## Initialization - load libraries, set working directory 
 
+```{r}
+library(knitr)
+setwd('C:/Users/Lu/Documents/GitHub/RepData_PeerAssessment1')
+```
 
 ## Loading and preprocessing the data
-
+```{r}
+#check to see if the csv file exists
+if (!file.exists('activity.csv')){
+#download from the source
+    url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+    destfile <- "activity.zip"
+    download.file(url, destfile)
+    unzip('activity.zip')
+}
+df <- read.csv('activity.csv')
+```
 
 
 ## What is mean total number of steps taken per day?
