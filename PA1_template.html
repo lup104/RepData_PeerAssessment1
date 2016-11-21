@@ -197,6 +197,7 @@ IntervalSteps[which.max(IntervalSteps$steps),]</code></pre>
 sum(is.na(df$steps))</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <pre class="r"><code>imputed_df &lt;- df
+#filled the missing data with the mean of the original dataset 
 imputed_df$steps &lt;- impute(df$steps, mean) 
 imputed_DailyTotalSteps&lt;- aggregate(steps ~ date, imputed_df, sum)
 hist(imputed_DailyTotalSteps$steps, main = &quot;Histogram of Daily Steps (Imputed)&quot;, xlab=&quot;Total Daily Steps&quot;, ylab=&quot;Frequency&quot;, col=&quot;darkgreen&quot;, breaks=20)</code></pre>

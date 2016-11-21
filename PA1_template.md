@@ -119,6 +119,7 @@ sum(is.na(df$steps))
 
 ```r
 imputed_df <- df
+#filled the missing data with the mean of the original dataset 
 imputed_df$steps <- impute(df$steps, mean) 
 imputed_DailyTotalSteps<- aggregate(steps ~ date, imputed_df, sum)
 hist(imputed_DailyTotalSteps$steps, main = "Histogram of Daily Steps (Imputed)", xlab="Total Daily Steps", ylab="Frequency", col="darkgreen", breaks=20)
